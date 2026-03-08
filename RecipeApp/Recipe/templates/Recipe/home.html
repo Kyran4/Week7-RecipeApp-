@@ -1,0 +1,48 @@
+{% extends "Recipe/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Chef's Special Section -->
+    <section class="chef-special mb-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Chef's Special</h2>
+
+                <div class="ratio ratio-16x9">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Chef's Special Video"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+        </div>
+    </section>
+
+    <!-- Community Feedback Section -->
+    <section class="community-feedback mb-5">
+        <h2 class="section-title text-center mb-4">Community Feedback</h2>
+
+        <div class="feedback-list">
+
+            <div class="feedback-card">
+                <p class="feedback-text">“The breakfast recipes are amazing! My family loved them.”</p>
+                <span class="feedback-author">— Sarah M.</span>
+            </div>
+
+            <div class="feedback-card">
+                <p class="feedback-text">“The layout is clean and easy to navigate. Great job!”</p>
+                <span class="feedback-author">— Daniel K.</span>
+            </div>
+
+            <div class="feedback-card">
+                <p class="feedback-text">“I tried the dinner pasta recipe and it turned out perfect.”</p>
+                <span class="feedback-author">— Priya S.</span>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

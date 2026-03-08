@@ -1,0 +1,78 @@
+{% extends "Recipe/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row g-4">
+
+        <!-- Left column: Image -->
+        <div class="col-md-6">
+            <img src="{{ recipe.image.url }}" 
+                 alt="{{ recipe.name }}" 
+                 class="img-fluid rounded shadow">
+        </div>
+
+        <!-- Right column: Details -->
+        <div class="col-md-6">
+            <h1 class="mb-2">{{ recipe.name }}</h1>
+            <p class="text-muted mb-3">By {{ recipe.author }}</p>
+
+            <p class="lead">{{ recipe.short_description }}</p>
+
+            <!-- Metadata box -->
+            <div class="metadata-box mb-4">
+
+                {% if recipe.prep_time %}
+                <p>
+                    <i class="bi bi-clock-history me-2"></i>
+                    <strong>Prep time:</strong> {{ recipe.prep_time }}
+                </p>
+                {% endif %}
+
+                {% if recipe.cook_time %}
+                <p>
+                    <i class="bi bi-fire me-2"></i>
+                    <strong>Cook time:</strong> {{ recipe.cook_time }}
+                </p>
+                {% endif %}
+
+                {% if recipe.servings %}
+                <p>
+                    <i class="bi bi-people me-2"></i>
+                    <strong>Servings:</strong> {{ recipe.servings }}
+                </p>
+                {% endif %}
+
+                {% if recipe.difficulty %}
+                <p>
+                    <i class="bi bi-bar-chart-line me-2"></i>
+                    <strong>Difficulty:</strong> {{ recipe.get_difficulty_display }}
+                </p>
+                {% endif %}
+
+            </div>
+
+            <hr>
+
+            <h4>Ingredients</h4>
+            <ul class="ingredients-list">
+                {% for item in recipe.ingredients_list %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+
+            <hr>
+
+            <h4>Instructions</h4>
+            <div class="instructions">
+                {{ recipe.instructions|linebreaks }}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

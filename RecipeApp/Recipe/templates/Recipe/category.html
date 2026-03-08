@@ -1,0 +1,36 @@
+{% extends "Recipe/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1 class="text-center display-5 mb-4">{{ title }} Recipes</h1>
+
+    <div class="recipe-grid">
+
+        {% for recipe in recipes %}
+            <div class="recipe-card">
+
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-image">
+
+                <div class="recipe-info">
+                    <h3 class="recipe-name">{{ recipe.name }}</h3>
+                    <p class="recipe-author">By {{ recipe.author }}</p>
+                    <p class="recipe-desc">{{ recipe.short_description }}</p>
+
+                    <a href="{% url 'recipe_detail' recipe.pk %}" class="view-btn">
+                        View Recipe
+                    </a>
+                </div>
+
+            </div>
+        {% empty %}
+            <p>No recipes available in this category yet.</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

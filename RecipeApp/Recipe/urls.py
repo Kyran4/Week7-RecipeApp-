@@ -12,4 +12,6 @@ urlpatterns = [
     path("dinner/", views.dinner, name="dinner"),
 
     path("recipe/<int:pk>/", views.recipe_detail, name="recipe_detail"),
+    path("accounts/signup/", views.signup, name="signup"),
+    path("submit_recipe/", views.submit_recipe, name="submit_recipe"),
 ]

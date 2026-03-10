@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Recipe(models.Model):
     CATEGORY_CHOICES = [
@@ -32,3 +33,6 @@ class Recipe(models.Model):
     @property
     def ingredients_list(self):
         return [line.strip() for line in self.ingredients.split("\n") if line.strip()]
+    
+    
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)

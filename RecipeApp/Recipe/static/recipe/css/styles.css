@@ -242,3 +242,88 @@ footer a:focus {
     font-size: 1.1rem;
     color: #6c63ff;
 }
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.recipe-form input,
+.recipe-form textarea,
+.recipe-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    background: #ff7f50;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff5722;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #ff7f50;
+}
+
+.auth-btn {
+    background: #ff7f50;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.auth-btn:hover {
+    background: #ff5722;
+}
+
+.auth-switch {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: #ff7f50;
+    text-decoration: none;
+}
+

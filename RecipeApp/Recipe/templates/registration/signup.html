@@ -1,0 +1,19 @@
+{% extends "Recipe/base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Create an Account</h2>
+
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="auth-btn">Sign Up</button>
+    </form>
+
+    <p class="auth-switch">
+        Already have an account?
+        <a href="{% url 'login' %}">Log in</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "Recipe/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Admin Dashboard</h1>
+
+    <h3>Statistics</h3>
+    <ul>
+        <li>Total Users: {{ total_users }}</li>
+        <li>Total Recipes: {{ total_recipes }}</li>
+    </ul>
+
+    <h4>Recipes by Category</h4>
+    <ul>
+        {% for item in recipes_by_category %}
+            <li>{{ item.category }}: {{ item.count }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <a href="{% url 'admin_recipes' %}" class="btn btn-primary">Manage Recipes</a>
+    <a href="{% url 'submit_recipe' %}" class="btn btn-success">Add New Recipe</a>
+</div>
+{% endblock %}

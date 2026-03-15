@@ -6,6 +6,7 @@ class Recipe(models.Model):
         ("breakfast", "Breakfast"),
         ("lunch", "Lunch"),
         ("dinner", "Dinner"),
+        ("dessert", "Dessert"),
     ]
 
     DIFFICULTY_CHOICES = [

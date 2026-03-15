@@ -16,7 +16,7 @@
 
                 <div class="recipe-info">
                     <h3 class="recipe-name">{{ recipe.name }}</h3>
-                    <p class="recipe-author">By {{ recipe.author }}</p>
+                    <p class="recipe-author">By {{ recipe.created_by.username }}</p>
                     <p class="recipe-desc">{{ recipe.short_description }}</p>
 
                     <a href="{% url 'recipe_detail' recipe.pk %}" class="view-btn">

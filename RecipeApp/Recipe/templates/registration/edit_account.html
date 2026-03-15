@@ -1,0 +1,40 @@
+{% extends "Recipe/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="account-container">
+    <h2>Edit Account</h2>
+
+    <h3>Password</h3>
+    <a class="button-link" href="{% url 'password_change' %}">Change your password</a>
+
+    <div class="recipe-list">
+        <h3>Your Recipes</h3>
+
+        {% if recipes %}
+            <ul>
+                {% for recipe in recipes %}
+                    <li>
+                        <div class="recipe-item-row">
+                            <a href="{% url 'recipe_detail' recipe.id %}">
+                                {{ recipe.name }}
+                            </a>
+
+                            <div class="recipe-actions">
+                                <a href="{% url 'edit_recipe' recipe.id %}" class="edit-btn">Edit</a>
+                                <a href="{% url 'delete_recipe' recipe.id %}" class="delete-btn">Delete</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't created any recipes yet.</p>
+        {% endif %}
+
+        <a class="button-link" href="{% url 'submit_recipe' %}">Create a new recipe</a>
+    </div>
+</div>
+
+{% endblock %}

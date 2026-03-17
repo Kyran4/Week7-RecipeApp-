@@ -13,9 +13,10 @@
     <h4>Recipes by Category</h4>
     <ul>
         {% for item in recipes_by_category %}
-            <li>{{ item.category }}: {{ item.count }}</li>
+          <li>{{ item.name }}: {{ item.count }}</li>
         {% endfor %}
     </ul>
+
 
     <hr>
 

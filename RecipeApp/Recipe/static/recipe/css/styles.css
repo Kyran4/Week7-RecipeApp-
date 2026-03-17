@@ -1,3 +1,6 @@
+/* ---------------------------------------------------
+   ROOT VARIABLES
+--------------------------------------------------- */
 :root {
     --primary: #ff7f50;
     --primary-dark: #ff5722;
@@ -21,143 +24,81 @@
 --------------------------------------------------- */
 
 .navbar {
-    background: #ffffff !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: var(--dark) !important;
     padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
-/* Logo + Title */
+/* Brand */
 .navbar-brand span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
+    color: var(--text-light) !important;
 }
 
 .navbar-brand img {
-    height: 65px;
-    width: auto;
-}
-
-/* Search bar centered and balanced */
-.navbar .form-control {
-    height: 42px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 0.95rem;
-}
-
-.navbar .btn-outline-dark {
-    height: 42px;
-    border-radius: 6px;
-    border-color: #333;
-    color: #333;
-    font-weight: 500;
-}
-
-.navbar .btn-outline-dark:hover {
-    background: #333;
-    color: #fff;
+    filter: brightness(0.9);
 }
 
 /* Nav links */
-.navbar-nav .nav-link {
-    font-weight: 500;
-    padding: 8px 14px;
-    margin-left: 4px;
-    border-radius: 6px;
-    color: #333 !important;
-    transition: 0.2s ease;
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+    display: flex !important;
+    align-items: center !important;
+    height: 40px !important;
+    padding: 8px 14px !important;
+    margin-left: 4px !important;
+    border-radius: 6px !important;
+    color: var(--text-light) !important;
 }
 
-/* Hover + active states */
+
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus,
 .navbar-nav .nav-link.show {
-    background: #ff7f50;
+    background: var(--primary);
     color: #fff !important;
 }
 
-/* Dropdown menu styling */
-.dropdown-menu {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border: none;
-}
-
-.dropdown-item {
-    padding: 10px 16px;
-    font-weight: 500;
-}
-
-.dropdown-item:hover {
-    background: #ff7f50;
+/* Search bar */
+.navbar .form-control {
+    background: #2a2a2a;
+    border: 1px solid #444;
     color: #fff;
 }
 
-/* Ensure search bar stays centered */
-form.d-flex.mx-auto {
-    width: 40%;
-    min-width: 260px;
+.navbar .form-control::placeholder {
+    color: #bbb;
 }
 
-/* Mobile adjustments */
-@media (max-width: 992px) {
-    form.d-flex.mx-auto {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .navbar-nav .nav-link {
-        margin-left: 0;
-        margin-top: 4px;
-    }
-}
-
-/* Ensure the entire navbar content is vertically centered */
-.navbar .container,
-.navbar .navbar-collapse,
-.navbar-nav {
-    display: flex;
-    align-items: center;
-}
-
-/* Make the search form align with nav links */
-.navbar form.d-flex {
-    display: flex;
-    align-items: center;
-}
-
-/* Fix search bar height mismatch */
-.navbar .form-control {
-    height: 40px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-/* Match search button height */
+/* Search button */
 .navbar .btn-outline-dark {
-    height: 40px;
-    display: flex;
-    align-items: center;
+    border-color: #fff !important;
+    color: #fff !important;
 }
 
-/* Ensure nav links align perfectly */
-.navbar-nav .nav-link,
-.navbar-nav .dropdown-toggle {
-    display: flex;
-    align-items: center;
-    height: 40px;
+.navbar .btn-outline-dark:hover {
+    background: #fff !important;
+    color: #000 !important;
 }
 
-/* Fix dropdown menus so they don't shift alignment */
+/* Dropdown menu */
 .dropdown-menu {
-    margin-top: 8px;
+    background: #2a2a2a !important;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dropdown-item {
+    color: #fff !important;
+}
+
+.dropdown-item:hover {
+    background: var(--primary) !important;
+    color: #fff !important;
 }
 
 /* ---------------------------------------------------
-   TITLES & HEADERS
+   TITLES
 --------------------------------------------------- */
-
 .section-title,
 .category-title {
     font-size: 2.2rem;
@@ -168,7 +109,6 @@ form.d-flex.mx-auto {
 /* ---------------------------------------------------
    FEEDBACK CARDS
 --------------------------------------------------- */
-
 .feedback-list {
     display: flex;
     flex-direction: column;
@@ -196,7 +136,6 @@ form.d-flex.mx-auto {
 /* ---------------------------------------------------
    RECIPE GRID & CARDS
 --------------------------------------------------- */
-
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -249,7 +188,6 @@ form.d-flex.mx-auto {
     margin-bottom: 15px;
 }
 
-/* View Button */
 .view-btn {
     display: inline-block;
     padding: 10px 14px;
@@ -266,9 +204,8 @@ form.d-flex.mx-auto {
 }
 
 /* ---------------------------------------------------
-   RECIPE DETAILS PAGE
+   RECIPE DETAILS
 --------------------------------------------------- */
-
 .ingredients-list {
     padding-left: 20px;
     margin-bottom: 20px;
@@ -303,56 +240,13 @@ form.d-flex.mx-auto {
 }
 
 /* ---------------------------------------------------
-   FORMS (Submit Recipe, Edit Recipe)
+   DARK THEME FOR ALL FORM PAGES
 --------------------------------------------------- */
-
-.form-container {
-    max-width: 600px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-}
-
-.recipe-form input,
-.recipe-form textarea,
-.recipe-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: var(--radius-sm);
-    border: 1px solid #ccc;
-}
-
-/* Buttons */
-.btn,
-.button-link,
-.view-btn,
-.auth-btn {
-    background: var(--primary);
-    color: var(--text-light) !important;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 10px 18px;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.btn:hover,
-.button-link:hover,
-.view-btn:hover,
-.auth-btn:hover {
-    background: var(--primary-dark);
-}
-
-/* ---------------------------------------------------
-   AUTH & ACCOUNT PAGES (Dark Theme)
---------------------------------------------------- */
-
 .auth-container,
-.account-container {
-    max-width: 500px;
+.account-container,
+.form-container,
+.recipe-dark-container {
+    max-width: 600px;
     margin: 40px auto;
     background: var(--dark);
     padding: 30px;
@@ -361,10 +255,14 @@ form.d-flex.mx-auto {
     box-shadow: var(--shadow-lg);
 }
 
+/* Inputs */
 .auth-form input,
 .auth-form select,
 .auth-form textarea,
-.account-container input {
+.account-container input,
+.form-container input,
+.form-container select,
+.form-container textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -375,76 +273,72 @@ form.d-flex.mx-auto {
 }
 
 .auth-form input:focus,
+.form-container input:focus,
 .account-container input:focus {
     outline: none;
     border-color: var(--primary);
 }
 
-.auth-switch a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-/* ---------------------------------------------------
-   ADMIN DASHBOARD
---------------------------------------------------- */
-
-.admin-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    margin-bottom: 20px;
-}
-
-.admin-table th,
-.admin-table td {
-    padding: 12px;
-    vertical-align: middle;
-}
-
-/* ---------------------------------------------------
-   FOOTER
---------------------------------------------------- */
-
-footer a img {
+/* Buttons */
+.auth-btn,
+.btn,
+.button-link,
+.password-btn {
+    background: var(--primary);
+    color: var(--text-light) !important;
     border: none;
-    outline: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 18px;
+    font-weight: 600;
+    transition: 0.2s ease;
 }
 
-footer a {
-    text-decoration: none !important;
-}
-
-footer a:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* ---------------------------------------------------
-   RESPONSIVE
---------------------------------------------------- */
-
-@media (max-width: 768px) {
-    .ingredients-list {
-        padding-left: 16px;
-    }
+.auth-btn:hover,
+.btn:hover,
+.button-link:hover,
+.password-btn:hover {
+    background: var(--primary-dark);
 }
 
 /* ---------------------------------------------------
-   EDIT ACCOUNT PAGE
+   CATEGORY PILL BUTTONS (Unified)
 --------------------------------------------------- */
+.category-toggle-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-.account-container {
-    max-width: 500px;
-    margin: 60px auto;
-    background: #1e1e1e;
-    padding: 35px;
-    border-radius: 12px;
+.category-toggle {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #2a2a2a;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
+.category-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.category-toggle:has(input[type="checkbox"]:checked) {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.category-toggle span {
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------
+   ACCOUNT PAGE
+--------------------------------------------------- */
 .account-container h2 {
     text-align: center;
     font-size: 1.9rem;
@@ -457,31 +351,7 @@ footer a:focus {
     font-weight: 600;
     margin-top: 25px;
     margin-bottom: 12px;
-    color: #ff7f50;
-}
-
-/* Buttons (Change password + Create recipe) */
-.button-link {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background: #ff7f50;
-    color: white !important;
-    border-radius: 6px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 10px;
-    transition: 0.2s ease;
-}
-
-.button-link:hover {
-    background: #ff5722;
-}
-
-/* Recipe list */
-.recipe-list {
-    margin-top: 10px;
+    color: var(--primary);
 }
 
 .recipe-list ul {
@@ -512,35 +382,17 @@ footer a:focus {
     text-decoration: underline;
 }
 
-.recipe-item-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .recipe-actions {
     display: flex;
     gap: 10px;
 }
 
-.edit-btn,
-.delete-btn {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-    transition: 0.2s ease;
-}
-
 .edit-btn {
-    background: #4a90e2;  
-    color: #fff !important; 
+    background: #4a90e2;
+    color: #fff !important;
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: 600;
-    text-decoration: none;
-    transition: 0.2s ease;
 }
 
 .edit-btn:hover {
@@ -549,27 +401,76 @@ footer a:focus {
 
 .delete-btn {
     background: #d9534f;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: white;
 }
 
 .delete-btn:hover {
     background: #c9302c;
 }
 
-/* Password change button */
-.password-btn {
-    width: 100%;
-    padding: 12px;
-    background: #ff7f50;
-    color: #fff;
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
+footer a img {
     border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.2s ease;
+    outline: none;
 }
 
-.password-btn:hover {
-    background: #ff5722;
+footer a {
+    text-decoration: none !important;
+}
+
+footer a:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
+@media (max-width: 768px) {
+    .ingredients-list {
+        padding-left: 16px;
+    }
+}
+
+/* FORCE category pills to display correctly on recipe cards */
+.recipe-card .recipe-categories {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
+}
+
+.recipe-card .category-pill {
+    display: inline-block !important;
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 4px 10px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+/* FORCE category pills to display correctly on recipe detail page */
+.recipe-categories {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
+}
+
+.recipe-categories .category-pill {
+    display: inline-block !important;
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 4px 10px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
 }

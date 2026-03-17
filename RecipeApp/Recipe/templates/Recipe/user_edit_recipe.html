@@ -6,8 +6,41 @@
 
     <form method="POST" enctype="multipart/form-data" class="recipe-form">
         {% csrf_token %}
-        {{ form.as_p }}
 
+        <!-- Render all fields except categories -->
+        {% for field in form %}
+            {% if field.name != "categories" %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Styled categories field -->
+        <div class="form-group">
+            <label><strong>Categories</strong></label>
+
+            <div class="category-toggle-group">
+                {% for checkbox in form.categories %}
+                    <label class="category-toggle">
+                        {{ checkbox.tag }}
+                        <span>{{ checkbox.choice_label }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+
+            {% for error in form.categories.errors %}
+                <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+<br>
         <button type="submit" class="btn">Save Changes</button>
     </form>
 </div>

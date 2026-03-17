@@ -11,6 +11,7 @@ urlpatterns = [
     path("lunch/", views.lunch, name="lunch"),
     path("dinner/", views.dinner, name="dinner"),
     path("dessert/", views.dessert, name="dessert"),
+    path("drinks/", views.drinks, name="drinks"),
     path("recipe/<int:pk>/", views.recipe_detail, name="recipe_detail"),
     path("signup/", views.signup, name="signup"),
     path("submit_recipe/", views.submit_recipe, name="submit_recipe"),

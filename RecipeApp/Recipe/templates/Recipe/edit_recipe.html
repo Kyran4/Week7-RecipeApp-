@@ -1,12 +1,46 @@
 {% extends "Recipe/base.html" %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="form-container">
     <h1>Edit Recipe: {{ recipe.name }}</h1>
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        <!-- Render all fields except categories -->
+        {% for field in form %}
+            {% if field.name != "categories" %}
+                <div class="mb-3">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Custom styled categories field -->
+        <div class="mb-3">
+            <label class="form-label"><strong>Categories</strong></label>
+
+            <div class="category-toggle-group">
+                {% for checkbox in form.categories %}
+                    <label class="category-toggle">
+                        {{ checkbox.tag }}
+                        <span>{{ checkbox.choice_label }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+
+            {% for error in form.categories.errors %}
+                <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+        </div>
+<br>
         <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
 </div>

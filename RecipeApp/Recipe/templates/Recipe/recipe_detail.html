@@ -17,7 +17,14 @@
         <!-- Right column: Details -->
         <div class="col-md-6">
             <h1 class="mb-2">{{ recipe.name }}</h1>
-            <p class="text-muted mb-3">By {{ recipe.created_by.username }}</p>
+            <p class="text-muted mb-1">By {{ recipe.created_by.username }}</p>
+
+            <!-- Category pills -->
+            <div class="recipe-categories mb-3">
+                {% for c in recipe.categories.all %}
+                 <span class="category-pill">{{ c.name }}</span>
+                {% endfor %}
+            </div>
 
             <p class="lead">{{ recipe.short_description }}</p>
 

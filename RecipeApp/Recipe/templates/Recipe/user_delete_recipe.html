@@ -9,7 +9,7 @@
     <form method="POST">
         {% csrf_token %}
         <button type="submit" class="btn" style="background:#d9534f;">Delete</button>
-        <a href="{% url 'edit_account' %}" class="btn" style="background:#4a90e2;">Cancel</a>
+        <a href="{% url 'home' %}" class="btn" style="background:#4a90e2;">Cancel</a>
     </form>
 </div>
 {% endblock %}

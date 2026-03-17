@@ -148,26 +148,17 @@ def admin_recipes(request):
 def edit_recipe(request, pk):
     recipe = Recipe.objects.get(pk=pk)
 
-    # Permission check
+    # Admin can edit anything; users can edit only their own
     if not (request.user.is_staff or recipe.created_by == request.user):
         return redirect("home")
 
-    # Choose template based on user type
-    template = (
-        "Recipe/admin_edit_recipe.html"
-        if request.user.is_staff
-        else "Recipe/user_edit_recipe.html"
-    )
+    form = RecipeForm(request.POST or None, request.FILES or None, instance=recipe)
 
-    if request.method == "POST":
-        form = RecipeForm(request.POST, request.FILES, instance=recipe)
-        if form.is_valid():
-            form.save()
-            return redirect("recipe_detail", pk=recipe.pk)
-    else:
-        form = RecipeForm(instance=recipe)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("recipe_detail", pk=recipe.pk)
 
-    return render(request, template, {"form": form, "recipe": recipe})
+    return render(request, "Recipe/user_edit_recipe.html", {"form": form, "recipe": recipe})
 
 @login_required
 def delete_recipe(request, pk):
@@ -176,14 +167,8 @@ def delete_recipe(request, pk):
     if not (request.user.is_staff or recipe.created_by == request.user):
         return redirect("home")
 
-    template = (
-        "Recipe/admin_delete_recipe.html"
-        if request.user.is_staff
-        else "Recipe/user_delete_recipe.html"
-    )
-
     if request.method == "POST":
         recipe.delete()
-        return redirect("edit_account")
+        return redirect("admin_recipes" if request.user.is_staff else "edit_account")
 
-    return render(request, template, {"recipe": recipe})
+    return render(request, "Recipe/user_delete_recipe.html", {"recipe": recipe})

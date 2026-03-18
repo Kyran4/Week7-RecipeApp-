@@ -87,9 +87,15 @@ def submit_recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
+
+            # Auto-fill author for non-admins
+            recipe.author = request.user.username
+
+            # Always set created_by (FK)
             recipe.created_by = request.user
+
             recipe.save()
-            form.save_m2m() 
+            form.save_m2m()
             return redirect("recipe_detail", recipe.id)
     else:
         form = RecipeForm()

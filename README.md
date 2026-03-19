@@ -54,9 +54,9 @@ RecipeHub is a full‑stack Django web application that allows users to create, 
 ---
 
 ## 🚀 Getting Started
+```bash
 
 ### 1. Clone the repository
-```bash
 git clone https://github.com/yourusername/yourrepo.git
 cd yourrepo
 

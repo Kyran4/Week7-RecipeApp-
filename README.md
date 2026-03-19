@@ -56,7 +56,6 @@ RecipeHub is a full‑stack Django web application that allows users to create, 
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/yourusername/yourrepo.git
 cd yourrepo
@@ -66,14 +65,14 @@ python -m venv venv
 source venv/bin/activate   # macOS/Linux
 venv\Scripts\activate      # Windows
 
-3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 
-4. Apply migrations
+### 4. Apply migrations
 python manage.py migrate
 
-5. Create a superuser (admin)
+### 5. Create a superuser (admin)
 python manage.py createsuperuser
 
-6. Run the development server
+### 6. Run the development server
 python manage.py runserver

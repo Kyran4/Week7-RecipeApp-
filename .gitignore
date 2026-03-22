@@ -1,2 +1,5 @@
 venv/
-media/
+*.docx
+*.xlsx
+~$*
+*.mp4

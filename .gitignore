@@ -1,5 +1,4 @@
 venv/
-media/
 *.docx
 *.xlsx
 ~$*

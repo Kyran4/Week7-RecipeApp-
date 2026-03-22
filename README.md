@@ -6,7 +6,7 @@ A modern, dark‑themed Django recipe sharing platform.
 ![License](https://img.shields.io/badge/License-MIT-orange.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
-RecipeHub is a full‑stack Django web application that allows users to create, browse, categorize, and manage recipes through a clean, modern, dark‑themed interface. It includes user authentication, recipe submission, category filtering, admin management tools, and a responsive UI built with Bootstrap and custom CSS.
+Rust-Eze Recipes is a full‑stack Django web application that allows users to create, browse, categorize, and manage recipes through a clean, modern, dark‑themed interface. It includes user authentication, recipe submission, category filtering, admin management tools, and a responsive UI built with Bootstrap and custom CSS.
 
 ---
 

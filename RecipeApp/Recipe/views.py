@@ -164,64 +164,6 @@ def search(request):
 
 
 # -----------------------------
-# ADMIN DASHBOARD
-# -----------------------------
-from django.db.models import Case, When, IntegerField, Count
-
-@login_required
-def admin_dashboard(request):
-    if not request.user.is_staff:
-        return redirect("home")
-
-    total_users = User.objects.count()
-    total_recipes = Recipe.objects.count()
-
-    custom_order = [
-        "Breakfast",
-        "Lunch",
-        "Dinner",
-        "Dessert",
-        "Drinks",
-        "Holidays - Mother's Day",
-        "Holidays - New Year",
-        "Health & Diet - Keto",
-        "Health & Diet - Vegetarian",
-    ]
-
-    recipes_by_category = Category.objects.annotate(
-        count=Count("recipes", distinct=True)
-    ).order_by(
-        Case(
-            *[
-                When(name=name, then=pos)
-                for pos, name in enumerate(custom_order)
-            ],
-            output_field=IntegerField(),
-        )
-    )
-
-    context = {
-        "total_users": total_users,
-        "total_recipes": total_recipes,
-        "recipes_by_category": recipes_by_category,
-    }
-
-    return render(request, "Recipe/admin_dashboard.html", context)
-
-
-# -----------------------------
-# ADMIN RECIPE LIST
-# -----------------------------
-@login_required
-def admin_recipes(request):
-    if not request.user.is_staff:
-        return redirect("home")
-
-    recipes = Recipe.objects.all().order_by("name")
-    return render(request, "Recipe/admin_recipes.html", {"recipes": recipes})
-
-
-# -----------------------------
 # EDIT RECIPE
 # -----------------------------
 @login_required

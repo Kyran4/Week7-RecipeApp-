@@ -40,8 +40,6 @@ urlpatterns = [
     path("health-diet/keto/", views.keto, name="keto"),
     path("health-diet/vegetarian/", views.vegetarian, name="vegetarian"),
     path("search/", views.search, name="search"),
-    path("admin-dashboard/", views.admin_dashboard, name="admin_dashboard"),
-    path("admin-dashboard/recipes/", views.admin_recipes, name="admin_recipes"),
     path("recipe/<int:pk>/edit/", views.edit_recipe, name="edit_recipe"),
     path("recipe/<int:pk>/delete/", views.delete_recipe, name="delete_recipe"),
 ]

@@ -83,7 +83,8 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'logged_out' %}">Logout</a></li>
 
                     {% if user.is_staff %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+                        <!-- OPTIONAL: Django Admin link -->
+                        <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
                     {% endif %}
                 {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>

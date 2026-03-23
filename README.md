@@ -57,8 +57,8 @@ Rust-Eze Recipes is a full‑stack Django web application that allows users to c
 ```bash
 
 ### 1. Clone the repository
-git clone https://github.com/yourusername/yourrepo.git
-cd yourrepo
+git clone https://github.com/Kyran4/Week7-RecipeApp-.git
+cd Week7-RecipeApp-
 
 ### 2. Create a virtual environment
 python -m venv venv
